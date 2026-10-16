@@ -1,0 +1,17 @@
+[package]
+name = "uareference-scrape"
+description = "Fetches the OPC UA online reference and transforms its STS XML into the uareference IR"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
+uareference-model = { workspace = true }
+quick-xml = { workspace = true }
+rayon = { workspace = true }
+thiserror = { workspace = true }
+ureq = { workspace = true }
+
+[lints]
+workspace = true

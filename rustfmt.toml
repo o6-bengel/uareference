@@ -1,0 +1,12 @@
+# Nightly-only options; format with `cargo +nightly fmt --all`. Stable
+# `cargo fmt` silently skips these and reports spurious diffs.
+max_width = 120
+attr_fn_like_width = 100
+chain_width = 60
+enum_discrim_align_threshold = 20
+fn_params_layout = "Vertical"
+fn_call_width = 100
+fn_single_line = false
+indent_style = "Block"
+imports_granularity = "Module"
+imports_layout = "Vertical"
