@@ -19,7 +19,9 @@ use crate::doc::{
     UNDERLINE,
 };
 
-pub const MUTED: Style = Style::new().fg(Color::DarkGray);
+const GRAY: Color = Color::Indexed(244);
+
+pub const MUTED: Style = Style::new().fg(GRAY);
 pub const SEARCH: Style = Style::new().fg(Color::Black).bg(Color::Yellow);
 pub const SELECTION: Style = Style::new().add_modifier(Modifier::REVERSED);
 pub const LINK_UNDER_CURSOR: Style = Style::new()
@@ -45,14 +47,12 @@ pub fn role(role: Role) -> Style {
         Role::Heading(1) => Style::new().fg(Color::Blue),
         Role::Heading(2) => Style::new().fg(Color::Cyan),
         Role::Heading(_) => Style::new().fg(Color::Green),
-        Role::Meta => Style::new()
-            .fg(Color::DarkGray)
-            .add_modifier(Modifier::ITALIC),
+        Role::Meta => Style::new().fg(GRAY).add_modifier(Modifier::ITALIC),
         Role::Caption => Style::new().fg(Color::Green),
-        Role::Border => Style::new().fg(Color::DarkGray),
+        Role::Border => Style::new().fg(GRAY),
         Role::Header => Style::new(),
-        Role::Code => Style::new().fg(Color::LightGreen),
-        Role::Note => Style::new().fg(Color::DarkGray),
+        Role::Code => Style::new().fg(Color::Green),
+        Role::Note => Style::new().fg(GRAY),
         Role::Bullet => Style::new().fg(Color::Yellow),
         Role::Muted => MUTED,
     }
@@ -77,7 +77,7 @@ pub fn span(
         }
     }
     if flags & MONO != 0 {
-        style = style.fg(Color::LightGreen);
+        style = style.fg(Color::Green);
     }
     match span
         .link
